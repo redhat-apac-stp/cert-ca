@@ -93,4 +93,8 @@ openssl x509 -req -in $DOMAIN.csr -CA ./myCA.pem -CAkey ./myCA.key -CAcreateseri
 -out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
 ```
 
+Of the files created for your server:
+.crt is the public cert (this is what the client uses to decrypt)
+.key is the cert private key (put it on your server)
 
+If you want these certificates trusted by the client then make your you install the root .pem on your machine.
