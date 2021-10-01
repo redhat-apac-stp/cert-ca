@@ -61,7 +61,7 @@ openssl x509 -req -in $DOMAIN.csr -CA ./myCA.pem -CAkey ./myCA.key -CAcreateseri
 -out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
 ```
 
-Or this example you can append your cluster name and domain ie mycluster.ocp.uluvus
+Or this example you can append your cluster name and domain ie mycluster.ocp.uluvus, put the following into a file and execure with the cluster name appended. 
 
 ```bash
 #!/bin/sh
@@ -85,9 +85,8 @@ basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = apps.$DOMAIN
+DNS.1 = api.$DOMAIN
 DNS.2 = *.apps.$DOMAIN
-DNS.3 = api.$DOMAIN
 EOF
 
 openssl x509 -req -in $DOMAIN.csr -CA ./myCA.pem -CAkey ./myCA.key -CAcreateserial \
