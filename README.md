@@ -61,7 +61,7 @@ openssl x509 -req -in $DOMAIN.csr -CA ./myCA.pem -CAkey ./myCA.key -CAcreateseri
 -out $DOMAIN.crt -days 825 -sha256 -extfile $DOMAIN.ext
 ```
 
-Or this example you can append your cluster name and domain ie mycluster.ocp.uluvus, put the following into a file and execure with the cluster name appended. 
+Or this example you can append your cluster name and domain ie mycluster.ocp.uluvus, put the following into a file and execute with the cluster name appended. 
 
 ```bash
 #!/bin/sh
@@ -98,3 +98,7 @@ Of the files created for your server:
 .key is the cert private key (put it on your server)
 
 If you want these certificates trusted by the client then make your you install the root .pem on your machine.
+
+---
+
+I can't take much credit for this. Check here for the real source: https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
